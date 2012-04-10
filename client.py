@@ -9,7 +9,7 @@ class StackAuthServer(BaseHTTPServer.BaseHTTPRequestHandler):
     def write_response(self, content, status_code=200, additional_headers={}):
         self.send_response(status_code)
         self.send_header('Content-type', 'text/html')
-        for key, value in additional_headers:
+        for key, value in additional_headers.items():
             self.send_header(key, value)
         self.end_headers()
         self.wfile.write(content)
